@@ -20,7 +20,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
     normalizationContext: ['groups' => 'myCommands']
 )]
 #[ApiFilter(DateFilter::class, properties: ['createdAt'])]
-#[ApiFilter(SearchFilter::class, properties: ['User.firstName' => 'exact'])]
+#[ApiFilter(SearchFilter::class, properties: ['user.firstName' => 'exact'])]
 class Command
 {
     #[ORM\Id]
