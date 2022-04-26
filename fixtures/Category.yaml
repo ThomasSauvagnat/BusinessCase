@@ -1,0 +1,23 @@
+App\Entity\Category:
+  category0:
+    label: 'Chien'
+  category1:
+    label: 'Chat'
+  category2:
+    label: 'Alimentation chat'
+    categoryParent: '@category1'
+  category3:
+    label: 'Alimentation chien'
+    categoryParent: '@category0'
+  category4:
+    label: 'Accessoires chien'
+    categoryParent: '@category0'
+  category5:
+    label: 'Accessoires chat'
+    categoryParent: '@category1'
+  category6:
+    label: 'soins chien'
+    categoryParent: '@category0'
+  category7:
+    label: 'soins chat'
+    categoryParent: '@category1'

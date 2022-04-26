@@ -1,0 +1,17 @@
+App\Entity\User:
+  user0:
+    email: 'admin@amdin.fr>'
+    roles: ["ROLE_ADMIN"]
+    password: "\\$2y\\$13\\$4WMQPDkn9e31z9jkYbNmRuOyxGtWoeZqVjqPRgfsgKCPvngIQO0sm"
+    first_name: 'Tom'
+    last_name: 'SAUV'
+    adresses: '<numberBetween(1, 2)>x @adress*'
+    createdAt: '<date_create()>'
+  user{1..300}:
+    email (unique): '<email()>'
+    roles: ["ROLE_USER"]
+    password: "\\$2y\\$13\\$4WMQPDkn9e31z9jkYbNmRuOyxGtWoeZqVjqPRgfsgKCPvngIQO0sm"
+    first_name: '<firstName()>'
+    last_name: '<lastName()>'
+    adresses: '<numberBetween(1, 3)>x @adress*'
+    createdAt: '<dateTimeBetween("-1000 days", "now")>'
