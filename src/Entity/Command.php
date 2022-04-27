@@ -12,10 +12,48 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\DateFilter;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use App\Controller\CommandBasketsAverageController;
+use App\Controller\CommandConversionBasketsController;
+use App\Controller\CommandConversionController;
+use App\Controller\CommandsTotalSellsController;
+use App\Controller\CommandTotalBasketsController;
+use App\Controller\CommandTotalController;
 
 #[ORM\Entity(repositoryClass: CommandRepository::class)]
 #[ApiResource(
-    collectionOperations: ['get', 'post'],
+    collectionOperations: ['get',
+    'post',
+    'get_total_sells_from_dates' => [
+        'method' => 'GET',
+        'path' => '/commands/get_total_sells',
+        'controller' => CommandsTotalSellsController::class
+    ],
+    'get_total_baskets' => [
+        'method' => 'GET',
+        'path' => '/commands/get_total_baskets',
+        'controller' => CommandTotalBasketsController::class
+    ],
+    'get_total_commands' => [
+        'method' => 'GET',
+        'path' => '/commands/get_total_commands',
+        'controller' => CommandTotalController::class
+    ],
+    'get_baskets_average_from dates' => [
+        'method' => 'GET',
+        'path' => '/commands/get_baskets_average',
+        'controller' => CommandBasketsAverageController::class
+    ],
+    'get_baskets_conversion_from dates' => [
+        'method' => 'GET',
+        'path' => '/commands/get_baskets_conversion',
+        'controller' => CommandConversionBasketsController::class
+    ],
+    'get_commands_conversion_from dates' => [
+        'method' => 'GET',
+        'path' => '/commands/get_commands_conversion',
+        'controller' => CommandConversionController::class
+    ]
+],
     itemOperations: ['get'],
     normalizationContext: ['groups' => 'myCommands']
 )]

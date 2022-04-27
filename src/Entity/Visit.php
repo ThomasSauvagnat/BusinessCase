@@ -3,13 +3,22 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Controller\VisitsCountController;
 use App\Repository\VisitRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: VisitRepository::class)]
 #[ApiResource(
-    collectionOperations: ['get', 'post'],
+    collectionOperations: [
+        'get',
+        'post',
+        'get_visits_from_dates' => [
+        'method' => 'GET',
+        'path' => '/visits/get_total_visits',
+        'controller' => VisitsCountController::class
+        ]
+    ],
     itemOperations: ['get']
 )]
 

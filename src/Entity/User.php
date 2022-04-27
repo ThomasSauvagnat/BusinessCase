@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Controller\UserCountNewClientsController;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -14,7 +15,14 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ApiResource(
-    collectionOperations: ['get', 'post'],
+    collectionOperations: ['get',
+    'post',
+    'get_total_new_clients_from_date' => [
+        'method' => 'GET',
+        'path' => '/users/get_new_clients',
+        'controller' => UserCountNewClientsController::class
+    ]
+],
     itemOperations: ['get'],
     normalizationContext: ['groups' => 'myUsers']
 )]

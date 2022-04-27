@@ -1,5 +1,10 @@
 parameters:
-  status: [100, 200, 300, 400]
+  # 100 : en cours de préparation (panier) non payé
+  # 200 : acceptée
+  # 300 : expédiée
+  # 400 : remboursée
+  # 500 : échouée
+  status: [100, 200, 300, 400, 500]
 
 App\Entity\Command:
   command{0..60}:

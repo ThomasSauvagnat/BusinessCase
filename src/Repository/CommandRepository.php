@@ -47,6 +47,51 @@ class CommandRepository extends ServiceEntityRepository
         }
     }
 
+    // Total de vente entre 2 dates
+    public function findTotalSellsBetweenDates($minDate, $maxDate)
+    {
+        return $this -> createQueryBuilder('c')
+            -> where('c.createdAt > :date_min')
+            -> andWhere('c.createdAt < :date_max')
+            -> andWhere('c.status = 200 OR c.status = 300')
+            -> setParameter('date_min', $minDate)
+            -> setParameter('date_max', $maxDate)
+            -> getQuery() -> getResult();
+    }
+
+    // Total de paniers entre 2 dates
+    public function findTotalBasketsBetweenDates($minDate, $maxDate)
+    {
+        return $this -> createQueryBuilder('c')
+            -> where('c.createdAt > :date_min')
+            -> andWhere('c.createdAt < :date_max')
+            -> andWhere('c.status = 100')
+            -> setParameter('date_min', $minDate)
+            -> setParameter('date_max', $maxDate)
+            -> getQuery() -> getResult();
+    }
+
+    // Total de commandes entre 2 dates
+    public function findTotalCommandsBetweenDates($minDate, $maxDate)
+    {
+        return $this -> createQueryBuilder('c')
+            -> where('c.createdAt > :date_min')
+            -> andWhere('c.createdAt < :date_max')
+            -> andWhere('c.status = 200 OR c.status = 300 OR c.status = 400 OR c.status = 500')
+            -> setParameter('date_min', $minDate)
+            -> setParameter('date_max', $maxDate)
+            -> getQuery() -> getResult();
+    }
+
+    public function test()
+    {
+        return $this -> createQueryBuilder('c')
+            // Lors d'un innerJoin :
+            // 1er argument la table que l'on veut joindre: command.user
+            // 2e argument c'est son alias (qu'on lui attribut) : 'u'
+            -> innerJoin('c.u', 'u');
+    }
+
     // /**
     //  * @return Command[] Returns an array of Command objects
     //  */
