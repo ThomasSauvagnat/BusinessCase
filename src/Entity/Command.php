@@ -15,6 +15,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Controller\CommandBasketsAverageController;
 use App\Controller\CommandConversionBasketsController;
 use App\Controller\CommandConversionController;
+use App\Controller\CommandRecurrenceController;
 use App\Controller\CommandsTotalSellsController;
 use App\Controller\CommandTotalBasketsController;
 use App\Controller\CommandTotalController;
@@ -52,6 +53,11 @@ use App\Controller\CommandTotalController;
         'method' => 'GET',
         'path' => '/commands/get_commands_conversion',
         'controller' => CommandConversionController::class
+    ],
+    'get_commands_recurrence_from dates' => [
+        'method' => 'GET',
+        'path' => '/commands/get_commands_recurrence',
+        'controller' => CommandRecurrenceController::class
     ]
 ],
     itemOperations: ['get'],

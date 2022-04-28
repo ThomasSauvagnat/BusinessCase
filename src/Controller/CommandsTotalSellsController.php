@@ -32,6 +32,6 @@ class CommandsTotalSellsController extends AbstractController
             $TotalSells += $command -> getTotalPrice();
         }
 
-        return $this -> json($TotalSells);
+        return $this -> json(['result' => $TotalSells]);
     }
 }

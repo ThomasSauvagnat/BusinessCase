@@ -27,6 +27,6 @@ class CommandTotalBasketsController extends AbstractController
 
         $commandEntities = $this -> commandRepository -> findTotalBasketsBetweenDates($minDate, $maxDate);
 
-        return $this ->json (count($commandEntities));
+        return $this ->json (['result' => count($commandEntities)]);
     }
 }

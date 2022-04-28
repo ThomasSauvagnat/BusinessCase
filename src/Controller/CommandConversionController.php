@@ -37,6 +37,6 @@ class CommandConversionController extends AbstractController
 
         $basket_conversion = ($nb_baskests / $nb_commands) * 100;
 
-        return $this -> json($basket_conversion);
+        return $this -> json(['result' => $basket_conversion]);
     }
 }

@@ -89,7 +89,34 @@ class CommandRepository extends ServiceEntityRepository
             // Lors d'un innerJoin :
             // 1er argument la table que l'on veut joindre: command.user
             // 2e argument c'est son alias (qu'on lui attribut) : 'u'
-            -> innerJoin('c.u', 'u');
+            -> innerJoin('c.user', 'u');
+    }
+
+    // Nouveaux clients (ceux créés entre les dates entrées en argument)
+    public function findUserCommandsBetweenDates($minDate, $maxDate)
+    {
+        return $this -> createQueryBuilder('c')
+            -> innerJoin('c.user', 'u')
+            -> where('u.createdAt > :date_min')
+            -> andWhere('u.createdAt < :date_max')
+            -> andWhere('c.createdAt < :date_max')
+            -> andWhere('c.createdAt > :date_min')
+            -> setParameter('date_min', $minDate)
+            -> setParameter('date_max', $maxDate)
+            -> getQuery() -> getResult();
+    }
+
+    // Anciens clients (ceux qui ont été créés avant la date en argument)
+    public function findUserCommandsBeforeDate($minDate, $maxDate)
+    {
+        return $this -> createQueryBuilder('c')
+            -> innerJoin('c.user', 'u')
+            -> where('u.createdAt < :date_min')
+            -> andWhere('c.createdAt > :date_min')
+            -> andWhere('c.createdAt < :date_max')
+            -> setParameter('date_min', $minDate)
+            -> setParameter('date_max', $maxDate)
+            -> getQuery() -> getResult();
     }
 
     // /**

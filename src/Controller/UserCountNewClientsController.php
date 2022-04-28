@@ -27,6 +27,6 @@ class UserCountNewClientsController extends AbstractController
 
         $userEntities = $this -> userRepository -> findNewUserBetweenDates($minDate, $maxDate);
 
-        return $this -> json(count($userEntities));
+        return $this -> json(['result' => count($userEntities)]);
     }
 }

@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class CommandBasketsAverageController extends AbstractController
+class CommandRecurrenceController extends AbstractController
 {
     private CommandRepository $commandRepository;
 
@@ -25,15 +25,19 @@ class CommandBasketsAverageController extends AbstractController
         $minDate = new DateTime($minDateString);
         $maxDate = new DateTime($maxDateString);
 
-        $commandEntities = $this -> commandRepository -> findTotalBasketsBetweenDates($minDate, $maxDate);
+        $newUserEntities = $this -> commandRepository -> findUserCommandsBetweenDates($minDate, $maxDate);
+        $ancientUserEntities = $this -> commandRepository -> findUserCommandsBeforeDate($minDate, $maxDate);
 
-        $total = 0;
-        foreach ($commandEntities as $id => $command) {
-            $total += $command -> getTotalPrice();
+        dump($newUserEntities);
+        dump($ancientUserEntities);
+
+        if (count($newUserEntities) != 0) {
+            $recurrence = ( (count($newUserEntities) - count($ancientUserEntities))/ count($newUserEntities) )* 100;
+            return $this -> json(['result' => $recurrence]);
         }
 
-        $basket_average = $total / count($commandEntities);
-
-        return $this ->json (['result' => $basket_average]);
+        $error = 0;
+        return $this -> json(['result' => $error]);
+        
     }
 }

@@ -28,6 +28,6 @@ class VisitsCountController extends AbstractController
 
         $visitsNumber = $this -> visitRepository -> findVisitsBetweenDates($minDate, $maxDate);
 
-        return $this -> json(count($visitsNumber));
+        return $this -> json(['result' => count($visitsNumber)]);
     }
 }
