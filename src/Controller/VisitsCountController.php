@@ -16,9 +16,10 @@ class VisitsCountController extends AbstractController
     {
         $this -> visitRepository = $visitRepository;
     }
-
+    
     public function __invoke(Request $request)
     {
+        dump($this -> getUser());
         $minDateString = $request -> query -> get('min_date');
         $maxDateString = $request -> query -> get('max_date');
 
