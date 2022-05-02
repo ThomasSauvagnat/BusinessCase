@@ -20,3 +20,5 @@ commandes)
     - Total de produits vendus triés par ordre décroissant (Le produit le plus vendu
 sera en tête de liste, afficher le nombre d’unités vendues pour chaque produit)
     
+- Installation et configuration de webpack
+- Préparation des blocks dans template/base.html.twig
