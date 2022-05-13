@@ -47,32 +47,19 @@ class ProductRepository extends ServiceEntityRepository
         }
     }
 
-    // /**
-    //  * @return Product[] Returns an array of Product objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    //Total de produits vendus triés par ordre décroissant (Le produit le plus vendu sera en tête de liste, afficher le nombre d’unités vendues pour chaque produit)
+    public function getTotalProducts($minDate, $maxDate)
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+            ->join('p.commands', 'c')
+            -> where('c.createdAt > :date_min')
+            -> andWhere('c.createdAt < :date_max')
+            -> andWhere('c.status = 200 OR c.status = 300')
+            -> setParameter('date_min', $minDate)
+            -> setParameter('date_max', $maxDate)
+            ->groupBy('p.label')
+            ->orderBy('c.totalPrice')
+            ->getQuery()->getResult();
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Product
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

@@ -13,12 +13,12 @@
     + % de récurrence de commandes clients (un client déjà inscrit à re-commander,
 rapport entre le nb de commandes avec nouveaux clients sur la plage
 sélectionnée et le nb de commandes avec clients existants)
+    + Total de produits vendus triés par ordre décroissant (Le produit le plus vendu
+    sera en tête de liste, afficher le nombre d’unités vendues pour chaque produit) (à tester, la fonction se trouve dans product repository)
 
 - Reste à faire :
     - % de paniers abandonnées (% de paniers qui n’ont pas été convertis en
 commandes)
-    - Total de produits vendus triés par ordre décroissant (Le produit le plus vendu
-sera en tête de liste, afficher le nombre d’unités vendues pour chaque produit)
     
 - Installation et configuration de webpack
 - Préparation des blocks dans template/base.html.twig
