@@ -62,4 +62,81 @@ class ProductRepository extends ServiceEntityRepository
             ->getQuery()->getResult();
     }
 
+    // Meilleurs ventes (4)
+    public function getBestSells()
+    {
+        return $this->createQueryBuilder('p')
+            ->addSelect('COUNT(c) as countedCommand')
+            ->join('p.commands', 'c')
+            ->orderBy('countedCommand', 'DESC')
+            ->groupBy('p.id')
+            ->setMaxResults(4)
+            ->getQuery()->getResult();
+    }
+
+    public function getLastProducts()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(4)
+            ->getQuery()->getResult();
+    }
+
+    // Récupération de tous les produits concernant les chiens
+    public function getAllProductsDog()
+    {
+        return $this->createQueryBuilder('p')
+            ->join('p.categories', 'c')
+            ->where('c.id = 1 OR c.id = 4 OR c.id = 5 OR c.id = 7')
+            ->getQuery()->getResult();
+    }
+
+    // Récupération de tous les produits concernant les chats
+    public function getAllProductsCat()
+    {
+        return $this->createQueryBuilder('p')
+            ->join('p.categories', 'c')
+            ->where('c.id = 3 OR c.id = 6 OR c.id = 8')
+            ->getQuery()->getResult();
+    }
+
+    // Récupération des produits nourriture pour chien
+    public function getFoodProductsDog()
+    {
+        return $this->createQueryBuilder('p')
+            ->join('p.categories', 'c')
+            ->where('c.id = 4')
+            ->andWhere('c.categoryParent = 1')
+            ->getQuery()->getResult();
+    }
+
+    // Récupération des accessoires pour chien
+    public function getAccessoriesProductsDog()
+    {
+        return $this->createQueryBuilder('p')
+            ->join('p.categories', 'c')
+            ->where('c.id = 5')
+            ->andWhere('c.categoryParent = 1')
+            ->getQuery()->getResult();
+    }
+
+    // Récupération des nourritures pour chats
+    public function getFoodProductsCat()
+    {
+        return $this->createQueryBuilder('p')
+            ->join('p.categories', 'c')
+            ->where('c.id = 3')
+            ->andWhere('c.categoryParent = 2')
+            ->getQuery()->getResult();
+    }
+
+    // Récupération des accessoires pour chats
+    public function getAccessoriesProductsCat()
+    {
+        return $this->createQueryBuilder('p')
+            ->join('p.categories', 'c')
+            ->where('c.id = 6')
+            ->andWhere('c.categoryParent = 2')
+            ->getQuery()->getResult();
+    }
 }

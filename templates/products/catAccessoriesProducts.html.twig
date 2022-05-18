@@ -1,0 +1,16 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Accessoires pour chat{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <div class="row">
+            <h1>Accessoires pour chats</h1>
+            {% for product in catAccessoriesProducts %}
+                <div class="col-lg-3">
+                    {% include ('common/_cardProduct.html.twig') %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

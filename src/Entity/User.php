@@ -8,6 +8,7 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -26,6 +27,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
     itemOperations: ['get'],
     normalizationContext: ['groups' => 'myUsers']
 )]
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -49,12 +51,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $roles = [];
 
     #[ORM\Column(type: 'string')]
-    #[Assert\Type('string'), Assert\Length(
-        min: 5,
-        max: 100,
-        minMessage: 'Le mot de passe doit avoir au moins 5 caractères',
-        maxMessage: 'Le mot de passe doit avoir au maximum 100 caractères',
-    ), Assert\NotNull]
+//    #[Assert\Type('string'), Assert\Length(
+//        min: 5,
+//        max: 100,
+//        minMessage: 'Le mot de passe doit avoir au moins 5 caractères',
+//        maxMessage: 'Le mot de passe doit avoir au maximum 100 caractères',
+//    ), Assert\NotNull]
     private $password;
 
     #[ORM\Column(type: 'string', length: 255)]
