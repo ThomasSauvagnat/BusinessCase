@@ -119,5 +119,15 @@ class CommandRepository extends ServiceEntityRepository
             -> getQuery() -> getResult();
     }
 
+    // Récupération du panier d'un user
+    public function getBasketByUser($user)
+    {
+        return $this->createQueryBuilder('c')
+            ->join('c.user', 'u')
+            ->where('c.user = :user')
+            ->setParameter('user', $user)
+            ->andWhere('c.status = 100')
+            ->getQuery()->getOneOrNullResult();
+    }
 
 }

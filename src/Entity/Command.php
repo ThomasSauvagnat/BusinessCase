@@ -92,7 +92,7 @@ class Command
     #[Assert\Positive(
         message: 'Le nombre doit être positif'
     ), Assert\Type(
-        type: 'integer',
+        type: 'string',
         message: 'La valeur doit être un nombre.',
     ), Assert\NotNull(
         message: 'Le champ ne doit pas être nul'
