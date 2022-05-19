@@ -1,0 +1,22 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Hello AdminProductController!{% endblock %}
+
+{% block body %}
+<div class="container mt-3">
+    <div class="row">
+        <h1>Ajouter un produit</h1>
+        {{ form_start(form) }}
+            {{ form_row(form.label)}}
+            {{ form_row(form.description)}}
+            {{ form_row(form.price)}}
+            {{ form_row(form.stock)}}
+            {{ form_row(form.isActif)}}
+            {{ form_row(form.brand)}}
+            {{ form_row(form.categories)}}
+            {{ form_row(form.image)}}
+        <button type="submit" class="btn btn-success">Ajouter un produit</button>
+        {{ form_end(form) }}
+    </div>
+</div>
+{% endblock %}

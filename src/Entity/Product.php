@@ -98,7 +98,9 @@ class Product
     #[Groups(['myProducts'])]
     private $reviews;
 
-    #[ORM\OneToMany(mappedBy: 'product', targetEntity: ProductPicture::class)]
+    // persist => lorque l'on flush ça flush aussi le product_picture relié
+    // remove => lorsque l'on supprime supprime aussi l'image lié
+    #[ORM\OneToMany(mappedBy: 'product', targetEntity: ProductPicture::class, cascade: ['persist', 'remove'])]
     #[Groups(['myProducts'])]
     private $productPictures;
 
