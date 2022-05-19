@@ -8,7 +8,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown ps-5">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Chien
                     </a>
@@ -36,7 +36,7 @@
                 </li>
                 {% if app.user %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Panier</a>
+                    <a class="nav-link" href="{{ path('app_basket') }}">Panier</a>
                 </li>
                     <li class="nav-item">
                     <a class="nav-link" href="{{ path('app_profil')}}">Profil</a>

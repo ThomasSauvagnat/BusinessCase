@@ -1,9 +1,14 @@
-<div class="bg-success rounded">
+<div class="bgCard rounded mb-2 pb-1 ps-2 border border-success">
     <div class="w-100">
         <img src="{{ asset('build/images/')}}">
     </div>
     <h4>{{ product.label }}</h4>
     <p>{{ product.description|slice(0,20) ~ '...' }}</p>
     <p>note</p>
-    <strong>{{ product.price }}</strong>
+    <strong>{{ product.price }} €</strong>
+    {% if app.user %}
+        <a href="{{ path('app_basket_add', {id:product.id}) }}">
+            <button type="button" class="btn btn-danger">Ajouter <i class="fa-solid fa-cart-shopping"></i></button>
+        </a>
+    {% endif %}
 </div>

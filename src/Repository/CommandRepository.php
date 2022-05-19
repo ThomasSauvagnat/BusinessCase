@@ -127,6 +127,7 @@ class CommandRepository extends ServiceEntityRepository
             ->where('c.user = :user')
             ->setParameter('user', $user)
             ->andWhere('c.status = 100')
+            ->setMaxResults(1)
             ->getQuery()->getOneOrNullResult();
     }
 

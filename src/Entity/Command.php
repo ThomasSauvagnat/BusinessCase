@@ -87,7 +87,7 @@ class Command
     )]
     private $totalPrice;
 
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'string')]
     #[Groups(['myAdresses', 'myCommands', 'myProducts','myUsers'])]
     #[Assert\Positive(
         message: 'Le nombre doit être positif'
@@ -123,7 +123,7 @@ class Command
     private $status;
 
     #[ORM\ManyToOne(targetEntity: Adress::class, inversedBy: 'commands')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     #[Groups(['myCommands'])]
     private $adress;
 
@@ -158,12 +158,12 @@ class Command
         return $this;
     }
 
-    public function getNumCommand(): ?int
+    public function getNumCommand(): ?string
     {
         return $this->numCommand;
     }
 
-    public function setNumCommand(int $numCommand): self
+    public function setNumCommand(string $numCommand): self
     {
         $this->numCommand = $numCommand;
 

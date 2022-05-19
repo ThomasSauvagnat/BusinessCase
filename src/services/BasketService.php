@@ -35,17 +35,17 @@ class BasketService
         return $basketEntity;
     }
 
-    function addProductToBasket($productEntity)
+    function addProductToBasket($productEntity, $user)
     {
-        $basketEntity = $this->getBasket();
+        $basketEntity = $this->getBasket($user);
         $basketEntity->addProduct($productEntity);
         $this->entityManager->persist($basketEntity);
         $this->entityManager->flush();
     }
 
-    function removeProductFromBasket($productEntity)
+    function removeProductFromBasket($productEntity, $user)
     {
-        $basketEntity = $this->getBasket();
+        $basketEntity = $this->getBasket($user);
         $basketEntity->removeProduct($productEntity);
         $this->entityManager->remove($basketEntity);
         $this->entityManager->flush();
