@@ -19,6 +19,16 @@ sélectionnée et le nb de commandes avec clients existants)
 - Reste à faire :
     - % de paniers abandonnées (% de paniers qui n’ont pas été convertis en
 commandes)
+    - Finir le footer
+    - Finir le CRUD de 'mon profil'
+    - Faire le dashboard
+    - Finir la mise en page du panier
+    - Tester les images
+    - Améliorer le carousel (3e image, meilleure qualité et texte + lisible)
+    - Faire le système de note avec étoiles
+    - Commenter un maximum le code
+    - Vérifier que tout ce qui est demandé dans le BC est fait
+    - OPTION : faire pages des services et contact
     
 - Installation et configuration de webpack
 - Préparation des blocks dans template/base.html.twig

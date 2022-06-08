@@ -1,6 +1,7 @@
 App\Entity\User:
   user0:
-    email: 'admin@amdin.fr>'
+    email: 'admin@amdin.fr'
+    # MDP : test
     roles: ["ROLE_ADMIN"]
     password: "\\$2y\\$13\\$4WMQPDkn9e31z9jkYbNmRuOyxGtWoeZqVjqPRgfsgKCPvngIQO0sm"
     first_name: 'Tom'
