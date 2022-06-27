@@ -1,22 +1,41 @@
 {% extends 'base-admin.html.twig' %}
 
-{% block title %}Hello AdminProductController!{% endblock %}
+{% block title %}Produits{% endblock %}
 
 {% block body %}
-<div class="container mt-3">
-    <div class="row">
-        <h1>Ajouter un produit</h1>
-        {{ form_start(form) }}
-            {{ form_row(form.label)}}
-            {{ form_row(form.description)}}
-            {{ form_row(form.price)}}
-            {{ form_row(form.stock)}}
-            {{ form_row(form.isActif)}}
-            {{ form_row(form.brand)}}
-            {{ form_row(form.categories)}}
-            {{ form_row(form.image)}}
-        <button type="submit" class="btn btn-success">Ajouter un produit</button>
-        {{ form_end(form) }}
-    </div>
-</div>
+    <h1>Liste des produits</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom</th>
+            <th>Actif</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.label }}</td>
+                {% if product.isActif == 1 %}
+                    <td class="text-success">Oui</td>
+                {% else %}
+                    <td>Non</td>
+                {% endif %}
+                <td>
+{#                    <button class="btn btn-success"><a class="text-decoration-none text-white" href="{{ path('app_admin_brand_show', {'id': product.id}) }}">Voir</a></button>#}
+{#                    <button class="btn btn-primary"><a class="text-decoration-none text-white" href="{{ path('app_admin_brand_edit', {'id': product.id}) }}">Modifier</a></button>#}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Nous n'avons pas trouvé de produits...</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button class="btn btn-primary"><a class="text-decoration-none text-white" href="{{ path('app_admin_add_product') }}">Ajouter un produit</a></button>
 {% endblock %}

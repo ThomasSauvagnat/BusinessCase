@@ -23,9 +23,16 @@ class AdminProductController extends AbstractController
         $this->productRepository = $productRepository;
     }
 
+    #[Route('/admin/produits', name: 'app_admin_products')]
+    public function index(): Response
+    {
+        return $this->render('admin_product/index.html.twig', [
+            'products' => $this->productRepository->findAll(),
+        ]);
+    }
 
     #[Route('/admin/produit/ajouter', name: 'app_admin_add_product')]
-    public function index(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
+    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
     {
         $product = new Product();
         $form = $this->createForm(ProductType::class, $product);
@@ -60,7 +67,7 @@ class AdminProductController extends AbstractController
             return $this->redirectToRoute('app_admin');
         }
 
-        return $this->render('admin_product/index.html.twig', [
+        return $this->render('admin_product/new.html.twig', [
             'form' => $form->createView(),
         ]);
     }

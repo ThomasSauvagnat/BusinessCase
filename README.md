@@ -21,7 +21,7 @@ sélectionnée et le nb de commandes avec clients existants)
 commandes)
     - Finir le footer 
     - Finir le CRUD de 'mon profil'
-    - Faire le dashboard
+    - Faire le dashboard (faire le crud des produits à la main)
     - Finir la mise en page du panier
     - Tester les images
     - Améliorer le carousel (3e image, meilleure qualité et texte + lisible)
