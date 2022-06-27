@@ -19,7 +19,7 @@ sélectionnée et le nb de commandes avec clients existants)
 - Reste à faire :
     - % de paniers abandonnées (% de paniers qui n’ont pas été convertis en
 commandes)
-    - Finir le footer
+    - Finir le footer 
     - Finir le CRUD de 'mon profil'
     - Faire le dashboard
     - Finir la mise en page du panier

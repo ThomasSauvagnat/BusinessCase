@@ -1,0 +1,30 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Brand{% endblock %}
+
+{% block body %}
+    <h1>Marque</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ brand.id }}</td>
+            </tr>
+            <tr>
+                <th>Label</th>
+                <td>{{ brand.label }}</td>
+            </tr>
+            <tr>
+                <th>ImagePath</th>
+                <td>{{ brand.imagePath }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_brand_index') }}">Retour à la liste</a>
+
+    <button class="btn btn-primary ms-2"><a class="text-white text-decoration-none" href="{{ path('app_admin_brand_edit', {'id': brand.id}) }}">Modifier</a></button>
+
+    {{ include('admin_brand/_delete_form.html.twig') }}
+{% endblock %}

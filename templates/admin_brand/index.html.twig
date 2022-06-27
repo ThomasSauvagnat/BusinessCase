@@ -1,0 +1,37 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Marques{% endblock %}
+
+{% block body %}
+    <h1>Liste des marques</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>ImagePath</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for brand in brands %}
+            <tr>
+                <td>{{ brand.id }}</td>
+                <td>{{ brand.label }}</td>
+                <td>{{ brand.imagePath }}</td>
+                <td>
+                    <button class="btn btn-success"><a class="text-decoration-none text-white" href="{{ path('app_admin_brand_show', {'id': brand.id}) }}">Voir</a></button>
+                    <button class="btn btn-primary"><a class="text-decoration-none text-white" href="{{ path('app_admin_brand_edit', {'id': brand.id}) }}">Modifier</a></button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Nous n'avons pas trouvé de marques...</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button class="btn btn-primary"><a class="text-decoration-none text-white" href="{{ path('app_admin_brand_new') }}">Ajouter une marque</a></button>
+{% endblock %}
