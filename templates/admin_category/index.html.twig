@@ -1,0 +1,35 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Catégories{% endblock %}
+
+{% block body %}
+    <h1>Liste des catégories</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.label }}</td>
+                <td>
+                    <button class="btn btn-success"><a class="text-white text-decoration-none" href="{{ path('app_admin_category_show', {'id': category.id}) }}">Voir</a></button>
+                    <button class="btn btn-primary"><a class="text-white text-decoration-none" href="{{ path('app_admin_category_edit', {'id': category.id}) }}">Modifier</a></button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Nous n'avons pas trouvé de catégories...</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button class="btn btn-primary"><a class="text-white text-decoration-none" href="{{ path('app_admin_category_new') }}">Ajouter une catégorie</a></button>
+{% endblock %}
