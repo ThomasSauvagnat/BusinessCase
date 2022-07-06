@@ -15,6 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+// Déclaration de l'entité en API
 #[ApiResource(
     collectionOperations: ['get',
     'post',
