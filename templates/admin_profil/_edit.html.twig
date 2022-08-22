@@ -1,0 +1,12 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Modifier le profil{% endblock %}
+
+{% block body %}
+    <h1>Modifier le profil</h1>
+
+    {{ include('admin_profil/_form.html.twig', {'button_label': 'Confirmer la modification'}) }}
+
+    <a href="{{ path('app_profil') }}">Retour au profil</a>
+
+{% endblock %}
