@@ -21,10 +21,8 @@ sélectionnée et le nb de commandes avec clients existants)
     - Finir le CRUD de 'mon profil' => suppression et voir pour la modif des villes des users
     - Faire le dashboard (faire le crud des produits à la main)
     - Finir la mise en page du panier
-    - Tester les images
-    - Améliorer le carousel (3e image, meilleure qualité et texte + lisible)
+    - Tester les images => voir carrousel bug
     - Faire le système de note avec étoiles
-    - Commenter un maximum le code
     - Vérifier que tout ce qui est demandé dans le BC est fait
     - OPTION : faire pages des services et contact
     
