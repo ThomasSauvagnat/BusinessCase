@@ -12,14 +12,14 @@
                     <strong>{{product.label}}</strong>
                     <p>Description</p>
                     <p>{{product.description}}</p>
-                    <p>Prix : {{product.price}} €</p>
+                    <p>Prix : {{product.price / 100}} €</p>
                     <i class="fa-solid fa-trash"></i>
                     <a href="{{ path('app_basket_remove', {id: product.id})}}">Supprimer</a>
                     <hr>
                 {% endfor %}
             </div>
             <div class="col-lg-4">
-                <p>Prix total :</p>
+                <p>Prix total : {{total / 100}} €</p>
                 <button type="button" class="btn btn-dark">Commander</button>
             </div>
 

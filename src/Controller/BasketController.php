@@ -17,9 +17,28 @@ class BasketController extends AbstractController
         $basketUser = $basketService->getBasket($user);
         dump($basketUser);
 
+        // On déclare notre variable
+        $total = 0;
+        // Récupération des produits du panier
+        $productsBasket = $basketUser->getProducts();
+        // S'il en existe(nt)
+        if ($productsBasket) {
+            foreach ($productsBasket as $product) {
+                $prices = [];
+                // On met le prix de chaque produit dans notre tableau
+                array_push($prices, $product->getPrice());
+                foreach ($prices as $price) {
+                    // Ajout des prix dans la variable 'total'
+                    $total += $price;
+                }
+            }
+        }
+
+
         return $this->render('basket/index.html.twig', [
             'controller_name' => 'BasketController',
-            'basketUser' => $basketUser
+            'basketUser' => $basketUser,
+            'total' => $total
         ]);
     }
 
