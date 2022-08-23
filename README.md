@@ -16,12 +16,9 @@ sélectionnée et le nb de commandes avec clients existants)
     + Total de produits vendus triés par ordre décroissant (Le produit le plus vendu
     sera en tête de liste, afficher le nombre d’unités vendues pour chaque produit) (à tester, la fonction se trouve dans product repository)
 
-- Reste à faire :
-    - Finir le footer 
+- Reste à faire : 
     - Finir le CRUD de 'mon profil' => suppression et voir pour la modif des villes des users
     - Faire le dashboard (faire le crud des produits à la main)
-    - Finir la mise en page du panier
-    - Tester les images => voir carrousel bug
     - Faire le système de note avec étoiles
     - Vérifier que tout ce qui est demandé dans le BC est fait
     - OPTION : faire pages des services et contact

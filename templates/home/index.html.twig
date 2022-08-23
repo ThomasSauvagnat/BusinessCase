@@ -33,7 +33,7 @@
                 </div>
                 <div class="carousel-item">
                     <div>
-                        <img src="{{ asset('build/images/produit1.jpg') }}" class="d-block w-100" alt="...">
+                        <img src="{{ asset('build/images/produit1.jpg') }}" class="d-block w-100 myCarousel" alt="...">
                     </div>
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Third slide label</h5>
@@ -68,7 +68,7 @@
             </div>
         {% endfor %}
 
-        <div class="mt-5">
+        <div class="my-5">
             <h1 class="mb-3">La Nîmes'alerie, qui sommes nous ?</h1>
             <p>Lörem ipsum viling dirack till rett. Nyst sessa radionetik. Mäd fas kilogi blippbetalning. Tujivis rekesade. Kaliga homode. Krososm besm i biktigt om antir. Krosa del. Fadade lesk, samt stenoligen.
                 Symisa sosk och kasade. Kar kist. Prerar syktig förpappring. Beföst arad ifall tjock-tv, hackathon. Prepod heterosäligt diktig, klustersmitta. Antenybel biosm. Dolysyren våssa. Pregt våna. Du kan vara drabbad.
@@ -77,15 +77,19 @@
                 Cancelkultur planebel. Dabba ovis rihill doktig. Jarat nyna. Talepunkt pott. Jir degest och anyska vinar. Intrask safan. Ogisk krode kovåktiga. Oskap odagede emedan sofarade i episofi.
             </p>
         </div>
-        <div class="d-flex justify-content-evenly">
+        <div class="d-flex justify-content-evenly my-5">
             <div>
-                Paiements sécurisés
+                <img src="{{ asset('build/images/paiement.png') }}">
             </div>
-            <div>
-                Livraison en 24h
+            <div class="d-flex flex-column align-content-center justify-content-center">
+                <div>
+                    <img src="{{ asset('build/images/24h.png') }}">
+                </div>
+                <span class="pt-4 ps-4 fw-bold">Livraison en 24h</span>
             </div>
-            <div>
-                Remboursement sous 30 jours
+            <div class="d-flex flex-column">
+                <img src="{{ asset('build/images/euros 1.png') }}">
+                <span class="fw-bold">Remboursement sous 30 jours</span>
             </div>
         </div>
     </div>
