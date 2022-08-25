@@ -4,7 +4,7 @@
     </div>
     <h4>{{ product.label }}</h4>
     <p>{{ product.description|slice(0,30) ~ '...' }}</p>
-    <p>note</p>
+    {{ get_stars_for_product(product) | raw }}
     <strong>{{ product.price / 100 }} €</strong>
     {% if app.user %}
         <a href="{{ path('app_basket_add', {id:product.id}) }}">
